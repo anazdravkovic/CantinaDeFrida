@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>		
+		<title>Rezervacija | Cantina de Frida</title>
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="style.css">
+		    <meta charset="utf-8"/>
+ 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+		
+		<meta name="description" content="">
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/skripte.js"></script>
+		<link rel="stylesheet" href="unslider-master/src/scss/unslider.css"/>
+		<script src="unslider-master/src/js/unslider.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="slike/favicon.ico" sizes="32x32" />
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet/less" type="text/css" href="styles.less" />
+		<script src="js/less.min.js"></script>
+		<script>
+		
+		function initMap(){
+		var location = {lat: 44.820390  , lng: 20.447704 };
+		var map= new google.maps.Map(document.getElementById("map"), {
+		
+		zoom:17,
+		center: location
+		});
+		var marker= new google.maps.Marker({
+		position:location,
+		map: map
+		});
+		}
+		
+		</script>
+	
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQPyxMMP_1ZxgZ5mVOUSWJzcD6qzbpMaE&callback=initMap"></script>
+		<style>
+		*{
+		margin:0;
+		padding:0;
+		}
+		#map{height:500px;
+		width:100%;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="page-container">	
+			<header id="main-header">
+				<div class="container">
+						<div id="left-header">
+							<a href="index.html"><div id="logo"><span>Cantina de Frida</span></div></a>
+						</div>
+						<div id="right-header">
+							<div id="top-nav">					
+								<div id="top-menu">
+									<ul>
+										<li><a href="index.html">Početna</a></li>
+										<li><a href="galerija.html">Galerija</a></li>
+										<li><a href="program.html">Program</a></li>
+										<li><a class="active" href="rezervacija.html">Rezervacija</a></li>
+									</ul>
+									<div id="mobile-bars"><i class="fa fa-bars"></i></div>
+								</div>	
+							</div>
+						</div>				
+				</div>
+			</header>
+			
+				
+			<section id="main-content">
+				<div id="map">
+					
+				</div>
+				<div class="container">
+					<div id="entry-content">
+						<h1>Rezervacija</h1>
+						<div id="informacije">
+							<div class="levo">	
+								<form action="mailto:ana.zdravkovic.3.14@ict.edu.rs"  method="post" id="forma-kontakt">
+									<p class="polje-kontakt ime">
+										<input id="tbName" name="name" placeholder="Ime i prezime" class="stored" type="text" value="" />
+									</p>
+									<p class="polje-kontakt email">
+										<input id="tbEmail" name="email" class="stored" placeholder="Email" type="email" value="" />
+									</p>
+									<p class="polje-kontakt poruka">
+										<textarea id="taMessage" placeholder="Datum, vreme i broj osoba"></textarea>
+									</p>
+									<p class="polje-kontakt posalji">
+										<input id="submit" value="Pošalji" class="submit" type="button" />
+									</p>								
+								</form>
+							</div>
+							<div class="desno">
+								
+								
+								<p><strong>Adresa:</strong> Beton hala | Karađorđeva 2-4 | Beograd</p>
+								<p><strong>Telefoni:</strong><br>
+								011 2181107 | 060 3654021<br/>
+                        060 3654022 | 060 3654030</p>
+								<p><strong>Radno vreme:</strong>  10-03h</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>					
+				</div>				
+			</section>
+			
+			<footer id="main-footer">
+				<div class="container">
+					<div id="footer-kontakt">
+						<h3>Kontakt</h3>
+						
+						<p>Beton hala | Karađorđeva 2-4 | Beograd</p>
+						
+						<p>Telefon:<br/>
+						011 2181107 | 060 3654021<br/>
+                        060 3654022 | 060 3654030
+						</p>
+										
+						
+						
+
+					</div>
+					
+					
+				</div>
+				<div id="copyright">© Ana Zdravkovic 2017 </div>
+			</footer>
+		</div>
+		
+		<script type="text/javascript">
+		//localStorage pamti ime i email
+		$(document).ready(function () {
+			function init() {
+				if (localStorage["name"]) {
+					$('#tbName').val(localStorage["name"]);
+				}
+				if (localStorage["email"]) {
+					$('#tbEmail').val(localStorage["email"]);
+				}
+			}
+			init();
+		});
+
+		$('.stored').change(function () {
+			localStorage[$(this).attr('name')] = $(this).val();
+		});
+			
+		$('#localStorageTest').submit(function() {
+			localStorage.clear();
+		});
+		</script>
+	</body>
+</html>

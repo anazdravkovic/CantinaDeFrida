@@ -1,0 +1,62 @@
+.delay-animation(@items, @delay) {
+  .loopingClass(0);
+  
+  .loopingClass(@index) when (@index <= @items) {
+    &:nth-child(@{index}) {
+        animation-delay: unit((@index * @delay),s);
+    }
+
+    .loopingClass(@index + 1); // Increment loop
+  }
+}
+
+@numitems: 20;
+@delay: 0.1;
+
+.kolona-tri {
+	animation: fadein 2.0s ease-in 0s 1 forwards;
+	opacity: 0;
+  .delay-animation(@numitems, @delay);
+}
+
+
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+.transition(@property, @time, @method) {
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -ms-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+.transform(@string){
+	-webkit-transform: @string;
+	-moz-transform: 	 @string;
+	-ms-transform: 		 @string;
+	-o-transform: 		 @string;
+}
+.box-shadow (@string) {
+	-webkit-box-shadow: @string;
+	-moz-box-shadow:    @string;
+	box-shadow:         @string;
+}
+
+.samo-slicica, #submit, .opis-kolone a{
+	.transition(all, 0.4s, ease-in-out);
+}
+.samo-slicica:hover {
+	.box-shadow (0 0 15px #1a77bd);
+}
+.samo-slicica img{
+	.transition(all, 0.4s, ease);
+}
+.samo-slicica img:hover{
+	.transform (scale(1.1));
+	
+}
